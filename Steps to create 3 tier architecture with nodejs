@@ -82,4 +82,6 @@ systemctl enable httpd
 cd var/www/html 
 ls
 
+#Restart Apache web server (If required)
+systemctl restart httpd
 
