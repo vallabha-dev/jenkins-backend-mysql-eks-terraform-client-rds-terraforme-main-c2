@@ -1,5 +1,85 @@
-##########Database#########
+                                ##########Database#########
+#Create database test.sql file and create records
+backend/test.sql
 
-########  Backend   ########
+                                ########  Backend   ########
+Sudo su -
 
-######## FrontEnd ############
+#Install git
+yum install git -y
+
+#Clone the repository 
+git clone https://github.com/vallabha-dev/jenkins-backend-mysql-eks-terraform-client-rds-terraforme-main-c2
+ls
+rm -rf <remove unneccessary documents> (Keep only Backend, Client for this project)
+
+#Move to backend directory and open .env file
+vi .env
+
+DB_HOST=book.rds.com    -Change rds endpoint/Route53 private host pointed to rds
+DB_USERNAME=admin       -Give your rds username
+DB_PASSWORD="srivardhan"  -Give your rds password
+PORT=3306
+
+#Install node js
+sudo dnf install -y nodejs
+
+#Check Versions
+node -v
+npm -v
+
+#Install Depedencies
+npm install
+
+#Install process manager
+npm install -g pm2
+pm2 start index.js --name node-app
+
+                                 ######## FrontEnd ############
+Sudo su -
+
+#Install git
+yum install git -y
+
+#Clone the repository 
+git clone https://github.com/vallabha-dev/jenkins-backend-mysql-eks-terraform-client-rds-terraforme-main-c2
+ls
+rm -rf <remove unneccessary documents> (Keep only Backend, Client for this project)
+
+#Move to pages directory (client->src->pages)
+cd client/src/pages
+
+#Open config.js file
+Enter backend IP or Backend load balancer url or backend route53 record
+
+#Move to client directory
+cd ..
+
+#Install node js
+sudo dnf install -y nodejs
+
+#Check Versions
+node -v
+npm -v
+
+#Install Depedencies
+npm install
+
+#Install npm build
+npm run build    --Build is either Apache web server or nginx web server
+
+#Install Build
+yum install httpd -y
+
+#Copy the web server to deliver the web content
+sudo cp -r build/* var/www/html
+
+#Start Apache web server
+systemctl start httpd
+systemctl enable httpd
+
+#Move to html directory and files
+cd var/www/html 
+ls
+
+
